@@ -1,0 +1,137 @@
+2017/10/07 12:02:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "pegawai". in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('pegawai')
+#1 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=pegawai
+---
+2017/10/07 12:04:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type timestamp: ""
+LINE 1: ...hp", "jam_jaga") VALUES ('bambang', 'haha', 92032323232, '')
+                                                                    ^. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/yii/testdrive/protected/controllers/PetugasController.php (73)
+in /var/www/yii/testdrive/index.php (13)
+2017/10/07 12:04:05 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type timestamp: ""
+LINE 1: ...hp", "jam_jaga") VALUES ('bambang', 'haha', 92032323232, '')
+                                                                    ^. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3) in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1083): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 /var/www/yii/testdrive/protected/controllers/PetugasController.php(73): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): PetugasController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('petugas/create')
+#14 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
+HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
+---
+2017/10/07 12:04:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/yii/testdrive/protected/controllers/PetugasController.php (73)
+in /var/www/yii/testdrive/index.php (13)
+2017/10/07 12:04:32 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3) in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1083): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 /var/www/yii/testdrive/protected/controllers/PetugasController.php(73): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): PetugasController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('petugas/create')
+#14 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
+HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
+---
+2017/10/07 12:05:17 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/yii/testdrive/protected/controllers/PetugasController.php (73)
+in /var/www/yii/testdrive/index.php (13)
+2017/10/07 12:05:17 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3) in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1083): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 /var/www/yii/testdrive/protected/controllers/PetugasController.php(73): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): PetugasController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('petugas/create')
+#14 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
+HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
+---
+2017/10/07 12:05:30 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/yii/testdrive/protected/controllers/PetugasController.php (73)
+in /var/www/yii/testdrive/index.php (13)
+2017/10/07 12:05:30 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3) in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1083): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 /var/www/yii/testdrive/protected/controllers/PetugasController.php(73): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): PetugasController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('petugas/create')
+#14 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
+HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
+---
+2017/10/07 12:05:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3).
+in /var/www/yii/testdrive/protected/controllers/PetugasController.php (73)
+in /var/www/yii/testdrive/index.php (13)
+2017/10/07 12:05:54 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[22003]: Numeric value out of range: 7 ERROR:  integer out of range. The SQL statement executed was: INSERT INTO "petugas" ("nama_petugas", "alamat_petugas", "no_hp", "jam_jaga") VALUES (:yp0, :yp1, :yp2, :yp3) in /var/www/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /var/www/yii/framework/db/ar/CActiveRecord.php(1083): CDbCommand->execute()
+#1 /var/www/yii/framework/db/ar/CActiveRecord.php(811): CActiveRecord->insert(NULL)
+#2 /var/www/yii/testdrive/protected/controllers/PetugasController.php(73): CActiveRecord->save()
+#3 /var/www/yii/framework/web/actions/CInlineAction.php(49): PetugasController->actionCreate()
+#4 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('petugas/create')
+#14 /var/www/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#15 /var/www/yii/testdrive/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
+HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
+---
