@@ -135,3 +135,92 @@ Stack trace:
 REQUEST_URI=/yii/testdrive/index.php?r=petugas/create
 HTTP_REFERER=http://localhost/yii/testdrive/index.php?r=petugas/create
 ---
+2017/10/07 14:25:52 [error] [exception.ParseError] ParseError: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /var/www/yii1-dev/testdrive/protected/controllers/TesController.php:10
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CWebApplication.php(276): CWebApplication->createController('')
+#1 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#2 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#3 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:27:13 [error] [exception.ParseError] ParseError: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /var/www/yii1-dev/testdrive/protected/controllers/TesController.php:10
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CWebApplication.php(276): CWebApplication->createController('')
+#1 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#2 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#3 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:27:16 [error] [exception.ParseError] ParseError: syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /var/www/yii1-dev/testdrive/protected/controllers/TesController.php:10
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CWebApplication.php(276): CWebApplication->createController('')
+#1 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#2 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#3 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:27:44 [error] [exception.CException] CException: TesController cannot find the requested view "tesview". in /var/www/yii1-dev/framework/web/CController.php:881
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CController.php(785): CController->renderPartial('tesview', NULL, true)
+#1 /var/www/yii1-dev/testdrive/protected/controllers/TesController.php(10): CController->render('tesview')
+#2 /var/www/yii1-dev/framework/web/actions/CInlineAction.php(49): TesController->actionIndex()
+#3 /var/www/yii1-dev/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii1-dev/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii1-dev/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii1-dev/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#8 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:28:33 [error] [exception.CException] CException: TesController cannot find the requested view "tesview". in /var/www/yii1-dev/framework/web/CController.php:881
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CController.php(785): CController->renderPartial('tesview', NULL, true)
+#1 /var/www/yii1-dev/testdrive/protected/controllers/TesController.php(10): CController->render('tesview')
+#2 /var/www/yii1-dev/framework/web/actions/CInlineAction.php(49): TesController->actionIndex()
+#3 /var/www/yii1-dev/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii1-dev/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii1-dev/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii1-dev/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#8 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:30:53 [error] [exception.CException] CException: TesController cannot find the requested view "tesview". in /var/www/yii1-dev/framework/web/CController.php:881
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CController.php(785): CController->renderPartial('tesview', NULL, true)
+#1 /var/www/yii1-dev/testdrive/protected/controllers/TesController.php(10): CController->render('tesview')
+#2 /var/www/yii1-dev/framework/web/actions/CInlineAction.php(49): TesController->actionIndex()
+#3 /var/www/yii1-dev/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii1-dev/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii1-dev/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii1-dev/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController('tes')
+#8 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /var/www/yii1-dev/testdrive/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+---
+2017/10/07 14:39:10 [error] [php] Undefined variable: testing (/var/www/yii1-dev/testdrive/protected/views/tes/index.php:1)
+Stack trace:
+#0 /var/www/yii1-dev/framework/web/CController.php(872): TesController->renderFile()
+#1 /var/www/yii1-dev/framework/web/CController.php(785): TesController->renderPartial()
+#2 /var/www/yii1-dev/testdrive/protected/controllers/TesController.php(12): TesController->render()
+#3 /var/www/yii1-dev/framework/web/actions/CInlineAction.php(49): TesController->actionIndex()
+#4 /var/www/yii1-dev/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /var/www/yii1-dev/framework/web/CController.php(286): TesController->runAction()
+#6 /var/www/yii1-dev/framework/web/CController.php(265): TesController->runActionWithFilters()
+#7 /var/www/yii1-dev/framework/web/CWebApplication.php(282): TesController->run()
+#8 /var/www/yii1-dev/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /var/www/yii1-dev/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /var/www/yii1-dev/testdrive/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii1-dev/testdrive/index.php?r=tes
+in /var/www/yii1-dev/testdrive/protected/views/tes/index.php (1)
+in /var/www/yii1-dev/testdrive/protected/controllers/TesController.php (12)
+in /var/www/yii1-dev/testdrive/index.php (13)
