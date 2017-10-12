@@ -78,12 +78,13 @@ class Pasien extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		
+		// $criteria->compare('kd_pasien',$this->kd_pasien,true);
 
-		$criteria->compare('id_pasien',$this->id_pasien);
-		$criteria->compare('kd_pasien',$this->kd_pasien,true);
-		$criteria->compare('nama_pasien',$this->nama_pasien,true);
-		$criteria->compare('no_hp',$this->no_hp);
-		$criteria->compare('alamat',$this->alamat,true);
+		if (!empty($_GET['inputSearch'])) {
+			$search = $_GET['inputSearch'];
+			$criteria->condition = "kd_pasien='$search' OR nama_pasien='$search' OR alamat='$search'";
+		} 
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

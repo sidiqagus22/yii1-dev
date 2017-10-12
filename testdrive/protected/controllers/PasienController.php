@@ -31,6 +31,14 @@ class PasienController extends Controller
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','gdata'),
+				'users'=>array('*'),
+			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','cdelete'),
+				'users'=>array('*'),
+			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
@@ -55,6 +63,25 @@ class PasienController extends Controller
 			'model'=> $this->loadModel($id),
 		));
 	}
+
+	public function actionGData($id)
+    {
+        $user = Yii::app()->db->createCommand()
+        ->select('*')
+        ->from('public.pasien')
+        ->where('id_pasien=:id_pasien', array(':id_pasien'=>$id))
+        ->queryRow();
+        echo json_encode($user);
+    }
+
+    public function actionCDelete($id)
+    {
+        $this->loadModel($id)->delete();
+        $result = array(
+            'message' => 'data berhasil di hapus',        
+        );
+        echo json_encode($result);
+    }
 
 	/**
 	 * Creates a new model.
@@ -122,7 +149,7 @@ class PasienController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Pasien');
+		$dataProvider= new CActiveDataProvider('Pasien');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

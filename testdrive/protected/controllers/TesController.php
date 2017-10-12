@@ -12,7 +12,7 @@ class TesController extends Controller
    //      $model = Tes::model();
    //      $tesdata = $model->findAll();
  		// $this->render('index',array('tesdata'=> $tesdata));
-
+        
         //a sample query but you could use more complex than it
         $sql = 'SELECT id_pasien AS id, * from public.pasien';
         $rawData = Yii::app()->db->createCommand($sql); //or use ->queryAll(); in CArrayDataProvider
@@ -34,10 +34,10 @@ class TesController extends Controller
                         ),
                     ),
                     'pagination' => array(
-                        'pageSize' => 10,
+                        'pageSize' => 2,
                     ),
                 ));
-        $judul = 'tes judul';
+        $judul = 'Daftar Pasien';
         $this->render('index', array('model' => $model, 'judul' => $judul));
     }
 
@@ -93,19 +93,33 @@ class TesController extends Controller
 
     public function actionCDelete($id)
     {
-        $id =  $_GET['id'];
-        echo $id;
+        $this->loadModel($id)->delete();
+        $result = array(
+            'message' => 'data berhasil di hapus',        
+        );
+        echo json_encode($result);
     }
 
-    public function actionDelete($id)
+    public function actionGData($id)
     {
-        // $this->loadModel($id)->delete();
-        // $model = Tes::model();
-        // $model->delete('public.pasien', 'id_pasien=:id_pasien', array(':id_pasien'=> $id));
+        // $result = $this->loadModel($id);
+        // $result = array(
+        //     'message' => 'behasil ambil data'         
+        // );
+        $user = Yii::app()->db->createCommand()
+        ->select('*')
+        ->from('public.pasien')
+        ->where('id_pasien=:id_pasien', array(':id_pasien'=>$id))
+        ->queryRow();
+        echo json_encode($user);
+    }
 
-        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        // if(!isset($_GET['ajax']))
-        //     $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+    public function loadModel($id)
+    {
+        $model=Pasien::model()->findByPk($id);
+        if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+        return $model;
     }
 	
 }
