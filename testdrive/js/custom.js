@@ -24,21 +24,18 @@ $(document).ready(function() {
        var url = $(this).attr('href');
        if(!confirm('apakah benar anda akan menghapus data ini ???')) return false;
        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: 'JSON',
-            // data: {param1: 'value1'},
-            beforeSend: function(){
-                  //
-            },
-            success: function(response){
-                  var obj = $.parseJSON();
-                  alert(obj.message);
-            },
-            error: function(xhr, textStatus, errorThrown){
-                  //
-            }
+             url: url,
+             type: 'GET',
+             // dataType: 'JSON',
+             data: {param1: 'value1'},
+             success: function(response){
+                var obj =  $.parseJSON(response);
+                // alert(obj.message);
+                window.location.reload();
+             },
+             error: function(xhr, textStatus, errorThrown){
+                  // /
+             }
        })
-       return false;
       });
 });

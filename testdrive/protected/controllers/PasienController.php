@@ -39,6 +39,10 @@ class PasienController extends Controller
 				'actions'=>array('index','cdelete'),
 				'users'=>array('*'),
 			),
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','simpan'),
+				'users'=>array('*'),
+			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
@@ -77,10 +81,13 @@ class PasienController extends Controller
     public function actionCDelete($id)
     {
         $this->loadModel($id)->delete();
-        $result = array(
-            'message' => 'data berhasil di hapus',        
-        );
-        echo json_encode($result);
+	        $result = array(
+	            'message' => 'data berhasil di hapus',        
+	        );
+        	// if(!isset($_GET['ajax']))
+			// $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// $this->redirect(array('pasien/admin'));
+        	echo json_encode($result);
     }
 
 	/**
@@ -104,6 +111,19 @@ class PasienController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+
+	public function actionSimpan()
+	{
+		$pasien = new Pasien;
+		$pasien->kd_pasien = 'hfdaf';
+		$pasien->nama_pasien = 'wkwkw';
+		$pasien->save();
+		if($pasien->save())
+		$result = array(
+	            'message' => 'data berhasil di tambah',        
+	    );
+		echo json_encode($result);
 	}
 
 	/**

@@ -11,8 +11,10 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row" style="text-align: right;">
-		<input type="text" name="inputSearch" id="inputSearch" class="">
+	<div class="row" style="margin: 5px 0;">
+		<!-- <?php echo CHtml::dropDownList('listname', $model, 
+              array('1' => '10', '2' => '20')); ?> -->
+        <input type="text" name="inputSearch" id="inputSearch" style="float: right;">
 	</div>
 	<!-- <div class="row" style="text-align: right;">
 		<?php echo $form->label($model,'kd_pasien'); ?>

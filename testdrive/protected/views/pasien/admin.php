@@ -25,7 +25,7 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
- $('.cedit').click(function(e) {
+ $(document).delegate('.cedit', 'click', function(e) {
        e.preventDefault();
        $('#myModal').modal('show');
        var url = $(this).attr('href');
@@ -39,45 +39,68 @@ $('.search-form form').submit(function(){
                  // console.log(obj.message);
                  $('#inputKodepasien').val(obj.kd_pasien);
                  $('#inputNamapasien').val(obj.nama_pasien);
+                 $('#btn-simpan').val('update');
+                 $('#btn-simpan').text('Update');
              },
              error: function(xhr, textStatus, errorThrown){
                   // /
              }
        })
       });
-      $('.cdel').click(function(e) {
+       $(document).delegate('.cdel', 'click', function(e) {
        e.preventDefault();
        var url = $(this).attr('href');
        if(!confirm('apakah benar anda akan menghapus data ini ???')) return false;
        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: 'JSON',
-            // data: {param1: 'value1'},
-            beforeSend: function(){
-                  //
-            },
-            success: function(response){
-                  var obj = $.parseJSON();
-                  alert(obj.message);
-            },
-            error: function(xhr, textStatus, errorThrown){
-                  //
-            }
+             url: url,
+             type: 'GET',
+             // dataType: 'JSON',
+             data: {param1: 'value1'},
+             success: function(response){
+                var obj =  $.parseJSON(response);
+                // alert(obj.message);
+                window.location.reload();
+             },
+             error: function(xhr, textStatus, errorThrown){
+                  // /
+             }
        })
-       return false;
       });
+      $(document).delegate('#btn-tambah', 'click', function(e) {
+       e.preventDefault();
+        $('#myModal').modal('show');
+        $('#btn-simpan').val('simpan');
+        $('#btn-simpan').text('Simpan');
+        return false;
+      });
+    $(document).delegate('#form-pasien', 'submit', function(e) {
+        var url = $('#btn-simpan').data('url');
+        if($('#btn-simpan').attr('value') == 'update'){
+          alert('true');
+        }else{
+          $.ajax({
+             url: url,
+             type: 'POST',
+             // dataType: 'JSON',
+             data: {kd_pasien: 'value1', nama_pasien: 'value2'},
+             success: function(response){
+               var obj =  $.parseJSON(response);
+                alert(obj.message);
+                window.location.reload();
+             },
+             error: function(xhr, textStatus, errorThrown){
+                  // /
+             }
+        })
+        }
+        return false;
+    });
 ");
 ?>
 
 <h1>Manage Pasiens</h1>
-
-<!-- <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
- -->
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<button class="btn btn-primary" id="btn-tambah">Tambah</button>
+<!-- <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?> -->
 <div class="search-form" style="display:inline;">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -110,8 +133,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Modal header</h3>
   </div>
+  <form class="form-horizontal" id="form-pasien" action="#">
   <div class="modal-body">
-    <form class="form-horizontal" id="form-pasien">
         <div class="control-group">
             <label class="control-label" for="inputKodepasien">Kode Pasien</label>
             <div class="controls">
@@ -124,10 +147,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
               <input type="text" id="inputNamapasien" placeholder="Nama Pasien">
             </div>
         </div>
-    </form>
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button class="btn btn-primary" value="" id="btn-simpan" type="submit" data-url="<?php echo Yii::app()->createUrl('pasien/simpan'); ?>">Save changes</button>
   </div>
+  </form>
 </div>

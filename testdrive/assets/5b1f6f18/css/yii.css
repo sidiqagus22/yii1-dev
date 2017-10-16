@@ -28,6 +28,7 @@
 .grid-view .checkbox-column { width:15px; }
 .grid-view .summary {
   margin-bottom:5px;
+  margin-top: 5px;
   text-align:right;
 }
 .grid-view .pager { margin-top:5px; }
